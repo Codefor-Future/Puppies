@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Puppies from Akhil</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Puppies Club find your puppy from a veriety of breeds from quality breeders!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     
@@ -54,7 +55,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Akhil<span class="text-primary">.</span> </a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Puppies&nbsp<span style="color: rgb(255, 99, 71);font-weight: 900;">C</span>lub<span class="text-primary">.</span> </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -92,8 +93,8 @@
         <div class="row">
           <div class="col-md-7 align-self-center text-center text-md-left">
             <div class="intro-text">
-              <h1>We Care For <span class="d-md-block"><br> Your Dog</span></h1>
-              <p class="mb-4">We always try to provide your dog the best<span class="d-block"> services.</p>
+              <h1>We Help To Find<span class="d-md-block"><br>YOur Best <br>puppy</span></h1>
+              <p class="mb-4">We always try to provide you the best  pet adoption <span class="d-block">experience.</p>
             </div>
           </div>
           <div class="col-md-5 align-self-end text-center text-md-right">
@@ -103,7 +104,7 @@
       </div>
     </section> 
 
-    <section class="site-section">
+    <section class="site-section"  id="app">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -112,59 +113,54 @@
             </div>
             <h2 class="text-black mb-2">Available Puppies</h2>
             <p> We have  Siberian Husky, Pomeranian and many more...</p>
+
+            <!-- <div>
+              <button @click="filterShow=!filterShow">Filter</button>
+              <div v-if="filterShow">
+                <select name="" id="" v-model="filterDistrict">
+                  <option value="kozhikode">Kozhikode</option>
+                  <option value="kannur">Kannur</option>
+                  <option value="wayanad">Wayanad</option>
+                </select>
+                <select name="" id="" v-model="filterBreed">
+                  <option value="poma">Poma</option>                     
+                  <option value="siberianHusky">Siberian Husky</option>
+                </select>
+                <button @click="filter">Apply</button>
+              </div>
+
+            </div> -->
           </div>
         </div>
 
         <div class="row hover-1-wrap mb-5 mb-lg-0">
-          <div class="col-12">
+
+          <div class="col-6" v-for="i in filteredPuppyList">
             <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
-                <a href="#" class="hover-1">
-                  <img src="images/dogger_img_sm_5.jpg" alt="Image" class="img-fluid">
+              <div class="mb- mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
+                <a href="#" >
+                  <img :src="i.image" alt="Image" class="img-fluid" >
                 </a>
               </div>
               <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
-                <h2 class="text-black">Pomeranian</h2>
-                <p class="mb-4">Far far away, behind the word mountains, Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a style="color: white;"  class="btn btn-primary">1000 Rs</a></p>
+                <h2 style=" font-size: 1.2rem;" class="text-black my-1">{{i.name}}</h2>
+                <p class="mb-2" style="font-size: .8rem;line-height: 1.2rem;">{{i.description}}</p>
+                <p style="display: inline;"><a style="color: white;"  class="text-dark">{{i.rate}}</a></p >
+                <p style="display: inline; background: white;" ><a style="color: rgba(58, 57, 57, 0.767); background: white; font-size: .9rem"  class="showDetails d-block" >Details </a></p>
+                <div class="details" style="font-size: .8rem;">
+                  {{i.location}}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row hover-1-wrap mb-5 mb-lg-0">
-          <div class="col-12">
-            <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6"  data-aos="fade-left">
-                <a href="#" class="hover-1">
-                  <img src="images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-5 ml-auto align-self-center"  data-aos="fade-right">
-                <h2 class="text-black">Pomeranian</h2>
-                <p class="mb-4">Far far away, behind the word mountains, Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a  style="color: white;" class="btn btn-primary">1500 Rs</a></p>
-              </div>
-            </div>
-          </div>
+          
+          
         </div>
-
-        <div class="row hover-1-wrap">
-          <div class="col-12">
-            <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
-                <a href="#" class="hover-1">
-                  <img src="images/dogger_img_sm_2.jpg" alt="Image" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
-                <h2 class="text-black">Pomeranian</h2>
-                <p class="mb-4">Far far away, behind the word mountains, Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a  style="color: white;" class="btn btn-primary">2000 Rs</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        
+        
+      
       </div>
     </section>
 
@@ -395,15 +391,15 @@
                 <ul class="list-unstyled text-left address">
                   <li>
                     <span class="d-block">Address:</span>
-                    <p>Melbourne St,South Birbane 4101 Austraila</p>
+                    <p>Thanakkandi <br>Kolathur Post <br>Kozhikode</p>
                   </li>
                   <li>
                     <span class="d-block">Phone:</span>
-                    <p>+(000) 123 4567 89</p>
+                    <p>+91 8878787878</p>
                   </li>
                   <li>
                     <span class="d-block">Email:</span>
-                    <p>info@yourdomain.com</p>
+                    <p>info@puppiesclub.com</p>
                   </li>
                 </ul>
               </div>
@@ -449,7 +445,65 @@
     </footer>
 
   </div> <!-- .site-wrap -->
-
+  <script>
+    const app= new Vue({
+      el:"#app",
+      data:{
+        puppyList:[
+          {
+            district:"kozhikode"
+          },
+          {
+            district:"kannur"
+          }
+        ],
+        filteredPuppyList:[
+          {
+            image:"./images/dogger_img_sm_4.jpg",
+            name:"Pomaranian",
+            description:"/ the discussion on related tools and features!",
+            rate:"5000 Rs",
+            location:"kozhikode"
+          },
+          {
+            image:"./images/dogger_img_sm_3.jpg",
+            name:"Poda",
+            description:"/Performance/ScrollLinkedEffects for further details and to join the discussion on related tools and features!",
+            rate:"5000 Rs",
+            location:"filadelfia"
+          },
+          {
+            image:"./images/dogger_img_sm_5.jpg",
+            name:"Different",
+            description:"/Performance/ScrollLinkeils and to join the discussion on related tools and features!",
+            rate:"5000 Rs",
+            location:"kolathur"
+          },
+          {
+            image:"./images/dogger_img_sm_6.jpg",
+            name:"Dog",
+            description:"/Performance/ScrollLinke!",
+            rate:"5000 Rs",
+            location:"kozhikode"
+          }
+        ],
+        filterShow:false,
+        filterDistrict:"kozhikode",
+        filterBreed:null
+      },
+      computed:{
+       filter:()=>{
+        const arr=this.puppyList=[]
+        this.filteredPuppyList= arr.filter((puppy)=>{
+          puppy.district==this.filterDistrict
+        })
+       }
+      },
+      mounted(){
+        this.puppyList=this.filteredPuppyList
+      }
+    })
+  </script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
